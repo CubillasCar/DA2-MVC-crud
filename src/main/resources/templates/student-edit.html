@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Editar Alumno</title>
+</head>
+<body>
+<div class="container">
+    <h3>Editar Alumno</h3>
+    <div>
+        <form action="#" method="post"
+              th:object="${student}"
+              th:action="@{/students/update}">
+
+            <div class="form-group">
+                <label for="id">id</label>
+                <input type="text" class="class-controller" id="id"
+                       placeholder="Ingrese su Nombre"
+                       th:field="*{id}"
+                >
+
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="class-controller" id="nombre"
+                       placeholder="Ingrese su Nombre"
+                       th:field="*{nombre}">
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameFather">Apellido Paterno</label>
+                <input type="text" class="class-controller" id="lastNameFather"
+                       placeholder="Ingrese el Apellido Paterno"
+                       th:field="*{lastNameFather}">
+            </div>
+            <div class="form-group">
+                <label for="lastNameMother">Apellido Materno</label>
+                <input type="text" class="class-controller" id="lastNameMother"
+                       placeholder="Ingrese el Apellido Materno"
+                       th:field="*{lastNameMother}">
+            </div>
+            <div class="form-group">
+                <label for="age">Edad</label>
+                <input type="number" class="class-controller" id="age"
+                       placeholder="Ingrese su Edad"
+                       th:field="*{age}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Agregar Alumno
+            </button>
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>

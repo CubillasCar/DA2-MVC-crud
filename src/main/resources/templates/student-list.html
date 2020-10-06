@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+    <title>Listar Alumnos</title>
+</head>
+<body>
+
+<div class="container">
+        <h3>Lista de Alumnos</h3>
+    <div class="col-md-12">
+        <a th:href="@{/students/add}" class="btn btn-primary" >Agregar</a>
+    </div>
+    <div th:switch="students">
+    <div th:case="*">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Edad</th>
+                    <th></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student:${students}">
+                    <th scope="row" th:text="${student.id}"></th>
+                    <td th:text="${student.nombre}"></td>
+                    <td th:text="${student.lastNameFather}"></td>
+                    <td th:text="${student.lastNameMother}"></td>
+                    <td th:text="${student.age}"></td>
+                    <td class="text-right">
+                        <div class="class btn-group">
+                            <a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn btn-primary btn-sm">Editar</a>
+                            <a th:href="@{/students/eliminar/{id}(id=${student.id})}" class="btn btn-danger">Eliminar</a>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <a th:href="@{/}"class="btn btn-info">INICIO</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>
